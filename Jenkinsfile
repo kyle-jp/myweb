@@ -24,7 +24,7 @@ pipeline {
         container('jnlp') {
           configFileProvider([configFile(fileId: 'kube-admin-auth', targetLocation: 'kubeconfig')]) {
           sh """
-          /home/jenkins/agent/workspace/Deploy/kubectl create deploy myweb${BUILD_NUMBER} -n myweb --image 172.30.48.210/library/myweb:${BUILD_NUMBER} --kubeconfig=kubeconfig
+          /home/jenkins/agent/workspace/deploy/kubectl create deploy myweb${BUILD_NUMBER} -n myweb --image 172.30.48.210/library/myweb:${BUILD_NUMBER} --kubeconfig=kubeconfig
           """  
           }
         }
